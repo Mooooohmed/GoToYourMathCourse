@@ -1,0 +1,307 @@
+/* .....................................variables.............................................  */
+/* .....................................variables.............................................  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ..................................mixin...............................................  */
+/* .................................................................................  */
+.course {
+  margin: 2.5rem 15% 0 15%;
+}
+.course__head {
+  color: #25166d;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.line-break::before {
+  position: absolute;
+  content: "";
+  border: 0.2rem solid #25166d;
+  padding: 0px 15rem;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translate(-50%, 15%);
+}
+
+.stages,
+.prim-grades,
+.prep-grades,
+.sec-grades,
+.select-term {
+  position: relative;
+  outline: 2px solid #c8d6e5;
+}
+
+.prim-grades--display,
+.prep-grades--display,
+.sec-grades--display,
+.select-term--display,
+.Go-course__adress--display {
+  display: none !important;
+  margin-top: 2rem;
+}
+
+.stages__btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  text-align: start;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border: none;
+  outline: 3px;
+  color: #7059dd;
+}
+.stages__btn--defualt {
+  background-color: #c8d6e5;
+}
+.stages__text {
+  font-size: 1.25rem;
+  color: #25166d;
+}
+.stages__menu {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 110%;
+  outline: 2px solid #c8d6e5;
+}
+.stages__menu .stages__btn:hover {
+  background-color: #576574;
+  color: white;
+}
+
+.prim-grades .choose-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  text-align: start;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border: none;
+  outline: 3px;
+  background-color: #ffeaa7;
+  color: #333;
+}
+
+.prep-grades .choose-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  text-align: start;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border: none;
+  outline: 3px;
+  background-color: #ffeaa7;
+  color: #333;
+}
+
+.sec-grades .choose-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  text-align: start;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border: none;
+  outline: 3px;
+  background-color: #ffeaa7;
+  color: #333;
+}
+
+.select-term .choose-btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  text-align: start;
+  font-size: 1.05rem;
+  font-weight: bold;
+  border: none;
+  outline: 3px;
+  background-color: #7ba4c9;
+  color: #2f3640;
+}
+
+.prim-grades__btn {
+  background-color: #feca57 !important;
+  color: #333 !important;
+}
+.prim-grades__text {
+  font-size: 1.25rem;
+  color: #333;
+}
+.prim-grades__menu {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 110%;
+  outline: 2px solid #ffeaa7;
+}
+.prim-grades__menu .choose-btn:hover {
+  background-color: #cc8e35;
+  color: white;
+}
+
+.prep-grades__btn {
+  background-color: #feca57 !important;
+}
+.prep-grades__text {
+  font-size: 1.25rem;
+  color: #333 !important;
+}
+.prep-grades__menu {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 110%;
+}
+.prep-grades__menu .choose-btn:hover {
+  background-color: #cc8e35;
+  color: white;
+}
+
+.sec-grades__btn {
+  background-color: #feca57 !important;
+}
+.sec-grades__text {
+  font-size: 1.25rem;
+  color: #333 !important;
+}
+.sec-grades__menu {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 110%;
+}
+.sec-grades__menu .choose-btn:hover {
+  background-color: #cc8e35;
+  color: white;
+}
+
+.select-term__btn {
+  background-color: #7ba4c9 !important;
+}
+.select-term__text {
+  font-size: 1.25rem;
+  color: #2f3640 !important;
+}
+.select-term__menu {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 110%;
+}
+.select-term__menu .choose-btn:hover {
+  background-color: #7f8fa6;
+  color: white;
+}
+
+.modal-groud {
+  color: rbg(#48dbfb, 0.5);
+}
+
+.model-bt-auto {
+  margin: 0 auto;
+}
+
+.Go-course .choose-btn {
+  background-color: #4cd137;
+  display: block;
+  margin: 3.6rem auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  font-size: 1.33rem;
+  font-weight: bold;
+  color: #174610;
+  box-shadow: 0.3rem 0.3rem #c4e538;
+}
+
+.Go-course button a {
+  padding: 0.8rem 0.5rem;
+}
+
+.Go-course button a:hover {
+  color: white;
+}
+
+.Go-course button a:active {
+  color: #c4e538;
+}
+
+.rest-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  display: none !important;
+}
+
+.active {
+  display: block !important;
+}
+
+.fade {
+  opacity: 0.5 !important;
+  transform: scale(0.981);
+}
+
+.close {
+  display: none !important;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  text-align: center;
+  background-color: rgb(233, 236, 239);
+  line-height: 0.3rem;
+}
+.footer__text {
+  padding-top: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+.footer__text--line {
+  text-decoration: underline;
+  color: #666666;
+}
+.footer__text--align-right {
+  text-align: right;
+  padding-right: 1.1rem;
+}
+.footer__text--align-left {
+  text-align: left;
+  padding-left: 1.1rem;
+}
+.footer__superveison {
+  color: #666666;
+}/*# sourceMappingURL=style.css.map */

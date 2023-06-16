@@ -1,0 +1,316 @@
+/* .....................................variables.............................................  */
+$main-font: "Roboto", sans-serif;
+$color: (
+  // #f0f0f0 defualt color of buttom
+  head: darken(#341f97, 10%),
+  frame: #48dbfb,
+  stagemenu: lighten(#341f97, 25%),
+  stagetext: darken(#341f97, 10%),
+  stagebgk: #c8d6e5,
+  stagehover: #576574,
+  // ----------------------------------------------------------------------------
+  gradeprim: #feca57,
+  gradeprep: #feca57,
+  gradesec: #feca57,
+  termselect: lighten(#487eb0, 15%),
+  // ----------------------------------------------------------------------------
+  primtext: #333,
+  preptext: #333,
+  sectext: #333,
+  termtext: #2f3640,
+  // ----------------------------------------------------------------------------
+  primbgk: #ffeaa7,
+  prepbgk: #ffeaa7,
+  secpbgk: #ffeaa7,
+  termbgk: lighten(#487eb0, 15%),
+  // ----------------------------------------------------------------------------
+  primhover: #cc8e35,
+  prephover: #cc8e35,
+  secphover: #cc8e35,
+  termhover: #7f8fa6,
+  // ----------------------------------------------------------------------------
+  modalbgk: rbg(#48dbfb, 0.5),
+  // ----------------------------------------------------------------------------
+  coursebgk: #4cd137,
+  courseshadow: #c4e538,
+  courseslink: darken(#4cd137, 35%),
+  footerbgk: rgb(233, 236, 239),
+  footerdark: #333
+);
+$font: (
+  Large: 1.33rem,
+  Medium: 1.25rem,
+  Small: 1.05rem,
+);
+/* .....................................variables.............................................  */
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  // min-height: 100vh;
+  // height: 40rem;
+  position: relative;
+  font-size: 16px;
+  font-family: $main-font;
+}
+ul,
+ol,
+li {
+  list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+/* ..................................mixin...............................................  */
+@mixin btnselector() {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  text-align: start;
+  font-size: map-get($font, Small);
+  font-weight: bold;
+  // border: 2px solid lightpink;
+  border: none;
+  outline: 3px;
+}
+@mixin menu() {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: 110%;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+}
+/* .................................................................................  */
+.course {
+  margin: 2.5rem 15% 0 15%;
+  // border: 1px solid map-get($color, frame);
+  &__head {
+    color: map-get($color, head);
+    font-size: map-get($color, Large);
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+}
+.line-break::before {
+  position: absolute;
+  content: "";
+  border: 0.2rem solid map-get($color, head);
+  padding: 0px 15rem;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translate(-50%, 15%);
+}
+.stages,
+.prim-grades,
+.prep-grades,
+.sec-grades,
+.select-term {
+  position: relative;
+  outline: 2px solid map-get($color, stagebgk);
+}
+.prim-grades--display,
+.prep-grades--display,
+.sec-grades--display,
+.select-term--display,
+.Go-course__adress--display {
+  display: none !important;
+  margin-top: 2rem; // important here to overwrite the flex of bootstrap
+}
+.stages {
+  &__btn {
+    @include btnselector;
+    color: map-get($color, stagemenu);
+  }
+  &__btn--defualt {
+    background-color: map-get($color, stagebgk);
+  }
+  &__text {
+    font-size: map-get($font, Medium);
+    color: map-get($color, stagetext);
+  }
+  &__menu {
+    @include menu();
+    outline: 2px solid map-get($color, stagebgk);
+  }
+  &__menu &__btn:hover {
+    background-color: map-get($color, stagehover);
+    color: white;
+  }
+}
+// ---------------------------------------------------------------------------------
+.prim-grades .choose-btn {
+  @include btnselector();
+  background-color: map-get($color, primbgk);
+  color: map-get($color, primtext);
+}
+.prep-grades .choose-btn {
+  @include btnselector();
+  background-color: map-get($color, prepbgk);
+  color: map-get($color, preptext);
+}
+.sec-grades .choose-btn {
+  @include btnselector();
+  background-color: map-get($color, secpbgk);
+  color: map-get($color, sectext);
+}
+.select-term .choose-btn {
+  @include btnselector();
+  background-color: map-get($color, termbgk);
+  color: map-get($color, termtext);
+}
+.prim-grades {
+  &__btn {
+    background-color: map-get($color, gradeprim) !important;
+    color: map-get($color, primtext) !important;
+  }
+  &__text {
+    font-size: map-get($font, Medium);
+    color: map-get($color, primtext);
+  }
+  &__menu {
+    @include menu();
+    outline: 2px solid map-get($color, primbgk);
+  }
+  &__menu .choose-btn:hover {
+    background-color: map-get($color, primhover);
+    color: white;
+  }
+}
+.prep-grades {
+  &__btn {
+    background-color: map-get($color, gradeprep) !important;
+  }
+  &__text {
+    font-size: map-get($font, Medium);
+    color: map-get($color, preptext) !important;
+  }
+  &__menu {
+    @include menu();
+  }
+  &__menu .choose-btn:hover {
+    background-color: map-get($color, prephover);
+    color: white;
+  }
+}
+.sec-grades {
+  &__btn {
+    background-color: map-get($color, gradesec) !important;
+  }
+  &__text {
+    font-size: map-get($font, Medium);
+    color: map-get($color, sectext) !important;
+  }
+  &__menu {
+    @include menu();
+  }
+  &__menu .choose-btn:hover {
+    background-color: map-get($color, secphover);
+    color: white;
+  }
+}
+// ---------------------------------------------------------------------------------
+.select-term {
+  &__btn {
+    background-color: map-get($color, termselect) !important;
+  }
+  &__text {
+    font-size: map-get($font, Medium);
+    color: map-get($color, termtext) !important;
+  }
+  &__menu {
+    @include menu();
+  }
+  &__menu .choose-btn:hover {
+    background-color: map-get($color, termhover);
+    color: white;
+  }
+}
+.modal-groud {
+  color: map-get($color, modalbgk);
+}
+.model-bt-auto {
+  margin: 0 auto;
+}
+.Go-course .choose-btn {
+  // border: 2px solid red;
+  background-color: map-get($color, coursebgk);
+  display: block;
+  margin: 3.6rem auto;
+  width: fit-content;
+  text-align: center;
+  font-size: map-get($font, Large);
+  font-weight: bold;
+  color: map-get($color, courseslink);
+  // border: 2px solid lightpink;
+  box-shadow: 0.3rem 0.3rem map-get($color, courseshadow);
+}
+.Go-course button a {
+  padding: 0.8rem 0.5rem;
+  // border: 5px solid red;
+}
+.Go-course button a:hover {
+  color: white;
+}
+.Go-course button a:active {
+  color: map-get($color, courseshadow);
+}
+// --------------------------------------------------------------
+.rest-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  display: none !important;
+}
+.active {
+  display: block !important;
+}
+.fade {
+  opacity: 0.5 !important;
+  transform: scale(0.981);
+}
+.close {
+  display: none !important;
+}
+.footer {
+  position: fixed;
+  // position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  text-align: center;
+  background-color: map-get($color, footerbgk);
+  // padding: 0 0.6rem;
+  line-height: 0.3rem;
+  &__text {
+    padding-top: 0.4rem;
+    font-size: map-get($font, Small);
+    font-weight: bold;
+  }
+  &__text--line {
+    text-decoration: underline;
+    color: lighten(#333, 20%);
+  }
+  &__text--align-right {
+    text-align: right;
+    padding-right: 1.1rem;
+  }
+  &__text--align-left {
+    text-align: left;
+    padding-left: 1.1rem;
+  }
+  &__superveison {
+    // background-color: map-get($color, footerdark);
+    // border: 2px red solid;
+    color: lighten(#333, 20%);
+  }
+}
